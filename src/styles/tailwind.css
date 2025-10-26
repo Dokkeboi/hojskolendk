@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
@@ -7,6 +7,10 @@
 
 @theme {
   /* Her tilføjes theme variable // tokens */
+
+  /* farver */
+
+  /* typografi */
 }
 
 @layer base {
@@ -15,13 +19,14 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(
+      --color-gray-200,
+      currentColor
+    );
   }
 }
 
-@layer components{
-
+@layer components {
 }
-@layer utilities{
-  
+@layer utilities {
 }

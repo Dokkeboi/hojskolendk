@@ -5,12 +5,26 @@
 @import "tailwindcss-animated";
 @import "tailwindcss-intersect";
 
+@font-face {
+  font-family: "Anton-Regular";
+  src: url("/fonts/Anton-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("/fonts/Roboto-Regular.ttf")
+    format("truetype");
+}
+
 @theme {
   /* Her tilføjes theme variable // tokens */
 
   /* farver */
 
   /* typografi */
+  --font-display: "Anton-Regular", sans-serif;
+  --font-text: "Roboto-Regular", sans-serif;
 }
 
 @layer base {

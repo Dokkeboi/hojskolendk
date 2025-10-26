@@ -1,12 +1,120 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 @import "tailwindcss-animated";
 @import "tailwindcss-intersect";
 
+@font-face {
+  font-family: "Anton-Regular";
+  src: url("/fonts/Anton-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("/fonts/Roboto-Regular.ttf")
+    format("truetype");
+}
+
 @theme {
   /* Her tilføjes theme variable // tokens */
+
+  /* farver */
+  --primary-color-cloudstone: #dadada;
+  --primary-color-skypulse: #408ad1;
+  --primary-color-suntrail: #ff5900;
+  --primary-color-charcoal: #322925;
+  --primary-color-driftsand: #f9f9f9;
+
+  --secondary-color-suntrail-50: #fff7ec;
+  --secondary-color-suntrail-100: #ffedd3;
+  --secondary-color-suntrail-200: #ffd9a5;
+  --secondary-color-suntrail-300: #ffbb6d;
+  --secondary-color-suntrail-400: #ff9332;
+  --secondary-color-suntrail-500: #ff730a;
+  --secondary-color-suntrail-600: #ff5900;
+  --secondary-color-suntrail-700: #cd3e02;
+  --secondary-color-suntrail-800: #a1320b;
+  --secondary-color-suntrail-900: #822b0c;
+  --secondary-color-suntrail-950: #461203;
+
+  --secondary-color-skypulse-50: #f2f7fe;
+  --secondary-color-skypulse-100: #e6edf9;
+  --secondary-color-skypulse-200: #c5dbf3;
+  --secondary-color-skypulse-300: #91bce8;
+  --secondary-color-skypulse-400: #579bda;
+  --secondary-color-skypulse-500: #408ad1;
+  --secondary-color-skypulse-600: #2162a8;
+  --secondary-color-skypulse-700: #1c4e89;
+  --secondary-color-skypulse-800: #1b4471;
+  --secondary-color-skypulse-900: #1c3a5f;
+  --secondary-color-skypulse-950: #11263f;
+
+  --secondary-color-charcoal-50: #f5f4f1;
+  --secondary-color-charcoal-100: #e6e4db;
+  --secondary-color-charcoal-200: #cec9bb;
+  --secondary-color-charcoal-300: #b3aa93;
+  --secondary-color-charcoal-400: #9c9073;
+  --secondary-color-charcoal-500: #8e7e65;
+  --secondary-color-charcoal-600: #796856;
+  --secondary-color-charcoal-700: #625346;
+  --secondary-color-charcoal-800: #54483f;
+  --secondary-color-charcoal-900: #4a4039;
+  --secondary-color-charcoal-950: #332926;
+
+  /* typografi */
+  --font-display: "Anton-Regular", sans-serif;
+  --font-text: "Roboto-Regular", sans-serif;
+}
+
+/* Farver */
+.color-primary-cloudstone {
+  color: var(--primary-color-cloudstone);
+}
+.color-primary-skypulse {
+  color: var(--primary-color-skypulse);
+}
+.color-primary-suntrail {
+  color: var(--primary-color-suntrail);
+}
+.color-primary-charcoal {
+  color: var(--primary-color-charcoal);
+}
+.color-primary-driftsand {
+  color: var(--primary-color-driftsand);
+}
+
+/* Tilføj sekundære farver her efter behov. kald den .color-secondary-{navn}-{nummer} */
+
+/* Typografi */
+.h1 {
+  font-family: var(--font-display);
+  font-size: 48px;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: 34px;
+}
+
+.h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+}
+
+.h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+.p-web {
+  font-family: var(--font-text);
+  font-size: 20px;
+}
+
+.p-mobile {
+  font-family: var(--font-text);
+  font-size: 14px;
 }
 
 @layer base {
@@ -15,13 +123,14 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(
+      --color-gray-200,
+      currentColor
+    );
   }
 }
 
-@layer components{
-
+@layer components {
 }
-@layer utilities{
-  
+@layer utilities {
 }

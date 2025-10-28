@@ -70,22 +70,26 @@
 
 /* Farver */
 .color-primary-cloudstone {
-  color: var(--primary-color-cloudstone);
+  color: var(--color-primary-cloudstone);
 }
 .color-primary-skypulse {
-  color: var(--primary-color-skypulse);
+  color: var(--color-primary-skypulse);
 }
 .color-primary-suntrail {
-  color: var(--primary-color-suntrail);
+  color: var(--color-primary-suntrail);
 }
 .color-primary-charcoal {
-  color: var(--primary-color-charcoal);
+  color: var(--color-primary-charcoal);
 }
 .color-primary-driftsand {
-  color: var(--primary-color-driftsand);
+  color: var(--color-primary-driftsand);
 }
 
-/* Tilføj sekundære farver her efter behov. kald den .color-secondary-{navn}-{nummer} */
+/* Tilføj sekundære farver her efter behov. kald den .color-{navn-secondary}-{nummer} */
+
+.color-charc-secondaryoal-400 {
+  color: var(--color-secondary-charcoal-400);
+}
 
 /* Typografi */
 .h1 {

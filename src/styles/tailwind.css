@@ -87,7 +87,11 @@
   color: var(--color-primary-driftsand);
 }
 
-/* Tilføj sekundære farver her efter behov. kald den .color-secondary-{navn}-{nummer} */
+/* Tilføj sekundære farver her efter behov. kald den .color-{navn-secondary}-{nummer} */
+
+.color-charc-secondaryoal-400 {
+  color: var(--color-secondary-charcoal-400);
+}
 
 /* Typografi */
 .h1-web {

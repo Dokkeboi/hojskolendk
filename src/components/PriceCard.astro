@@ -1,0 +1,59 @@
+---
+const { src, alt } = Astro.props;
+---
+
+<div class="group relative flex flex-col max-w-80 bg-gray-200 border border-gray-300 h-80 overflow-hidden hover:cursor-pointer transition-all duration-500">
+  <!-- Image container -->
+  <div class="absolute inset-0 group-hover:opacity-0 transition-opacity duration-500">
+    <img 
+      src={src} 
+      alt={alt} 
+      class="w-full h-full object-cover" 
+    />
+  </div>
+  
+  <!-- Content container -->
+  <div class="absolute bottom-0 left-0 right-0 bg-white px-4 py-4 translate-y-0 group-hover:-translate-y-full transition-transform duration-500 ease-in-out">
+    <!-- Basic info (always visible) -->
+    <div class="mb-4">
+      <p class="text-s font-bold text-primary-suntrail">17. jan 2026</p>
+      <div class="text-container flex flex-row">
+        <p class="text-s text-secondary-charcoal-500">3 måneder</p>
+        <p class="text-primary-suntrail font-bold ml-1"> ─SNART UDSOLGT</p>
+      </div>
+      <p class="text-s font-bold text-primary-charcoal">Højskole i Maldiverne, Sri Lanka, Bali, Gili Islands, Japan og Australien</p>
+      <hr class="border-secondary-charcoal-200 my-4">
+      <h4 class="h4">86.000-92.000 DKK</h4>
+    </div>
+    
+    <!-- Extended info (visible on hover) -->
+    <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 space-y-4">
+      <div>
+        <h5 class="font-bold text-primary-charcoal mb-2">Hvad er inkluderet:</h5>
+        <ul class="text-s text-secondary-charcoal-500 space-y-1">
+          <li>• Flyrejse til og fra Danmark</li>
+          <li>• Overnatning i delt værelser</li>
+          <li>• Alle måltider</li>
+          <li>• Aktiviteter og udflugter</li>
+          <li>• Forsikring</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h5 class="font-bold text-primary-charcoal mb-2">Praktisk info:</h5>
+        <p class="text-s text-secondary-charcoal-500">
+          Rejsen starter i København og inkluderer besøg i 6 fantastiske lande med unikke kulturoplevelser og naturskønne områder.
+        </p>
+      </div>
+      
+      <div class="flex space-x-2 mt-4">
+        <button class="bg-primary-suntrail text-white px-4 py-2 rounded text-s font-bold hover:bg-secondary-suntrail-700 transition-colors">
+          Se mere
+        </button>
+        <button class="bg-primary-skypulse text-white px-4 py-2 rounded text-s font-bold hover:bg-secondary-skypulse-600 transition-colors">
+          Tilmeld
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

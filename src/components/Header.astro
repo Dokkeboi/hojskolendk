@@ -6,27 +6,55 @@ import ButtonOrange from "./ButtonOrange.astro";
 import "../styles/tailwind.css";
 ---
 
-<div class="flex flex-row items-center justify-between mr-[40px] m-[40px] h-[132px] place-it">
+<div
+  class="flex flex-row items-center justify-between mr-[40px] m-[40px] h-[132px] place-it"
+>
   <div id="logo">
     <LogoWeb />
   </div>
   <div id="search-bar">
-    <div class="w-[509px] h-9 rounded-[4px] border border-[#9c9073] flex items-center gap-2">
-      <Image src="/assets/search-icon.svg" alt="search" width="16" height="16" />
-      <p class="p-mobile">search...</p>
+    <div
+      class="w-[509px] h-9 rounded-[4px] border border-[#9c9073] flex items-center gap-2"
+    >
+      <Image
+        src="/assets/search-icon.svg"
+        alt="search"
+        width="16"
+        height="16"
+      />
+      <p class="p">search...</p>
     </div>
   </div>
   <div id="menus">
-    <div class="flex flex-row gap-5 place-items-center">
-      <a class="h4 uppercase color-primary-charcoal flex items-center gap-1" href=""
+    <div
+      class="flex flex-row gap-5 place-items-center"
+    >
+      <a
+        class="h2 uppercase color-primary-charcoal flex items-center gap-1"
+        href=""
         >højskoleophold<span
-          ><Image src="/assets/arrow-up.svg" alt="arrow-down" width="10" height="10" /></span
+          ><Image
+            src="/assets/arrow-up.svg"
+            alt="arrow-down"
+            width="10"
+            height="10"
+          /></span
         ></a
       >
-      <a class="h4 uppercase color-primary-charcoal" href="">priser</a>
-      <a class="h4 uppercase border-p color-primary-charcoal flex items-center gap-1" href=""
+      <a
+        class="h1 uppercase color-primary-charcoal"
+        href="">priser</a
+      >
+      <a
+        class="h4 uppercase border-p color-primary-charcoal flex items-center gap-1"
+        href=""
         >om os<span
-          ><Image src="/assets/arrow-up.svg" alt="arrow-down" width="10" height="10" /></span
+          ><Image
+            src="/assets/arrow-up.svg"
+            alt="arrow-down"
+            width="10"
+            height="10"
+          /></span
         ></a
       >
       <ButtonOrange>infomøde</ButtonOrange>

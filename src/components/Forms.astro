@@ -2,35 +2,19 @@
 import { Image } from "astro:assets";
 ---
 
-<div
-  class="flex flex-col border w-[563px] items-center py-[52px] px-[33px] place-self-center shadow-[1px_3px_7.199999809265137px_0px] shadow-secondary-charcoal-200"
->
+<div class="flex flex-col border w-[563px] items-center py-[52px] px-[33px] place-self-center shadow-[1px_3px_7.199999809265137px_0px] shadow-secondary-charcoal-200 border-l-primary-suntrail">
   <form class="flex flex-col gap-5">
-    <input
-      class="w-[100%] h-12 rounded-[3px] border-secondary-charcoal-200 font-text text-secondary-charcoal-600 p-web"
-      type="text"
-      placeholder="Fulde navn"
-    />
-    <input
-      class="w-[100%] h-12 rounded-[3px] border-secondary-charcoal-200 font-text text-secondary-charcoal-600 p-web"
-      type="text"
-      placeholder="E-mail"
-    />
+    <input class="w-[100%] h-12 rounded-[3px] border-secondary-charcoal-200 font-text text-secondary-charcoal-600 p-web" type="text" placeholder="Fulde navn" />
+    <input class="w-[100%] h-12 rounded-[3px] border-secondary-charcoal-200 font-text text-secondary-charcoal-600 p-web" type="text" placeholder="E-mail" />
     <label class="flex" for="features">
       <select class="w-[85px]" name="feature">
         <option value="">+45</option>
         <option value="">+44</option>
       </select>
-      <input
-        class="w-[100%] h-12 rounded-r-[3px] border-secondary-charcoal-200 font-text text-secondary-charcoal-600 p-web"
-        type="text"
-        placeholder="Telefon nummer"
-      />
+      <input class="w-[100%] h-12 rounded-r-[3px] border-secondary-charcoal-200 font-text text-secondary-charcoal-600 p-web" type="text" placeholder="Telefon nummer" />
     </label>
     <div class="flex flex-col mt-10">
-      <label class="p-web text-secondary-charcoal-950" for="meeting"
-        >Hvilket møde deltager du i?</label
-      >
+      <label class="p-web text-secondary-charcoal-950" for="meeting">Hvilket møde deltager du i?</label>
       <select name="meeting" id="which-meeting"> </select>
     </div>
 
@@ -41,26 +25,15 @@ import { Image } from "astro:assets";
           <input class="relative top-1.5" type="checkbox" />
           <div>
             <p class="flex flex-row p-web place-items-start text-wrap">
-              <Image
-                class="relative top-1 mr-1"
-                src="/assets/attention.svg"
-                alt="attention"
-                width="19"
-                height="10"
-              />
+              <Image class="relative top-1 mr-1" src="/assets/attention.svg" alt="attention" width="19" height="10" />
               Ved tilmelding giver du os tilladelse til at
             </p>
-            <p class="flex flex-row p-web place-items-start text-wrap">
-              kontakte dig m. påmindelser og opfølgning.
-            </p>
+            <p class="flex flex-row p-web place-items-start text-wrap">kontakte dig m. påmindelser og opfølgning.</p>
           </div>
         </div>
         <div class="flex flex-row gap-5">
           <input class="relative top-1.5" type="checkbox" />
-          <p class="flex flex-row p-web w-[356px]">
-            Jeg har læst jeres privatlivspolitik og generelle bestemmelser og er indforstået med
-            begge.**
-          </p>
+          <p class="flex flex-row p-web w-[356px]">Jeg har læst jeres privatlivspolitik og generelle bestemmelser og er indforstået med begge.**</p>
         </div>
       </div>
     </div>

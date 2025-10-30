@@ -9,8 +9,84 @@ import LogoMobile from "../components/LogoMobile.astro";
 import LogoWeb from "../components/LogoWeb.astro";
 import Header from "../components/Header.astro";
 import Forms from "../components/Forms.astro";
+import Hero from "../components/Hero.astro";
 ---
 
-<MainLayout title="Titel">
-  <article class="flex flex-row gap-5"></article>
+<MainLayout title="Forside">
+  <div>
+    <Hero />
+  </div>
+  <div class="flex flex-col gap-[80px]">
+    <section class="mx-[24px]">
+      <div class="mt-20 lg:mt-50">
+        <h3
+          class="h3 w-[295px] lg:w-[972px] place-self-center text-center text-primary-charcoal"
+        >
+          Vi samler unge med eventyrlyst til <span
+            class="text-primary-suntrail"
+            >fællesskab</span
+          >, <span class="text-primary-suntrail"
+            >oplevelser</span
+          > og <span class="text-primary-suntrail"
+            >kulturmøder</span
+          > på inspirerende højskoleophold i udlandet.
+        </h3>
+      </div>
+    </section>
+    <section
+      class="mx-[24px] flex flex-col gap-[50px]"
+    >
+      <div
+        class="flex flex-row place-self-center gap-[25px]"
+      >
+        <div class="flex flex-col gap-[6px]">
+          <h2 class="h4 text-primary-charcoal">
+            HÖJSKOLENDK
+          </h2>
+          <p class="p w-[164px]">
+            er en dansk højskole for unge i
+            alderen ca. 18-30 år.Vi brænder for
+            oplevelser, fællesskab og mødet med
+            nye mennesker og kulturer; derfor
+            laver vi eventyrlige højskoleophold i
+            udlandet.
+          </p>
+        </div>
+        <Image
+          src="/imgs/_S5bW8Y8 1.png"
+          alt="poic"
+          width="121"
+          height="162"
+        />
+      </div>
+      <div>
+        <p class="p">
+          HØJSKOLENDK er noget for dig, hvis du
+          vil på højskole i udlandet og er vild
+          med højskolefællesskab, vil med på et
+          fantastisk rejseeventyr, glæder dig til
+          at lære om fremmede kulturer, vil rejse
+          med rygsæk, drømmer om en fed
+          grupperejse med andre skønne unge, vil
+          opleve et stærkt sammenhold og ønsker
+          inspirerende og meningsfuld
+          undervisning. Du er sikker på en tryg
+          rejseoplevelse da vi er medlem af
+          Rejsegarantifonden.
+        </p>
+      </div>
+    </section>
+    <section class="bg-secondary-charcoal-100">
+      <div class="place-items-center">
+        <h4 class="h4 text-primary-charcoal">
+          VI GLÆDER OS TIL AT LÆRE DIG AT KENDE
+        </h4>
+        <div>
+        <ButtonOrange text="vælg dit eventyr" />
+        </div>
+      </div>
+    </section>
+  </div>
 </MainLayout>
+
+<style></style>

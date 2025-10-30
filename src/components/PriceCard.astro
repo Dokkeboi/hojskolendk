@@ -1,0 +1,90 @@
+---
+const { src, alt } = Astro.props;
+const uid = `pc-${Math.random().toString(36).slice(2,9)}`;
+---
+
+
+<div data-uid={uid} class="group relative overflow-hidden flex flex-col max-w-80 md:max-w-lg bg-white border border-gray-300 border-l-4 border-l-primary-suntrail px-3 pt-3 pb-12 m-10">
+
+
+  <div class="">
+    <img
+      src={src}
+      alt={alt}
+      class="w-full h-40 object-cover block transition-all duration-150 ease-out group-hover:opacity-0 group-hover:pointer-events-none"
+    />
+  </div>
+ 
+  <div class="bg-white transform transition-transform duration-300 ease-out group-hover:-translate-y-40">
+
+
+    <div class="mb-4">
+      <p class="text-s font-bold text-primary-suntrail mt-2">17. jan 2026</p>
+      <div class="text-container flex flex-row">
+        <p class="text-s text-secondary-charcoal-500">Varighed: 3 måneder</p>
+        <!-- <p class="text-primary-suntrail font-bold ml-1"> ─SNART UDSOLGT</p> -->
+      </div>
+      <p class="text-s font-bold text-primary-charcoal mt-3">Højskole i Maldiverne, Sri Lanka, Bali, Gili Islands, Japan og Australien</p>
+
+
+      <!-- KATEGORIER: fast højde reserveret (undgår layout-shift). Indhold fader/slider på hover -->
+      <div class="">
+        <div class="h-20 overflow-hidden"> <!-- fast højde: justér h-20 -> h-24/h-16 efter behov -->
+          <div class="h-full flex flex-col transform translate-y-2 opacity-0 transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
+            <div class="flex space-x-2 mt-5 shrink-0">
+              <button type="button" class="cat-btn px-3 py-1 rounded border text-sm" data-text="Kort om kultur, mad og lokale oplevelser.">Kultur</button>
+              <button type="button" class="cat-btn px-3 py-1 rounded border text-sm" data-text="Praktisk info: Visum, vaccinationer og pakke-tips.">Praktisk</button>
+              <button type="button" class="cat-btn px-3 py-1 rounded border text-sm" data-text="Prisdetaljer, betalingsplan og hvad der er inkluderet.">Pris</button>
+            </div>
+            <div class="cat-content text-sm text-primary-charcoal overflow-auto"> <!-- scrolles internt hvis nødvendigt -->
+              <!-- udfyldes via script -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /KATEGORIER -->
+
+
+    </div>
+  </div>
+
+
+
+
+  <div class="absolute left-0 right-0 bottom-0 z-30 bg-white px-3 pb-3 pt-2 border-t border-secondary-charcoal-200 lg:static lg:bg-transparent lg:border-none lg:px-0 lg:pb-0 lg:pt-0 lg:flex lg:items-center lg:justify-between">
+     <h4 class="h4 mb-2 lg:mb-0 lg:mr-4">86.000-92.000 DKK</h4>
+     <div class="flex space-x-2">
+       <button class="bg-primary-skypulse text-white px-4 py-2 rounded text-s font-bold hover:bg-secondary-skypulse-600 transition-colors">
+         Se mere
+       </button>
+       <button class="bg-primary-suntrail text-white px-4 py-2 rounded text-s font-bold hover:bg-secondary-suntrail-700 transition-colors">
+         Tilmeld
+       </button>
+     </div>
+   </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-uid]').forEach(card => {
+    const btns = Array.from(card.querySelectorAll('.cat-btn'));
+    const content = card.querySelector('.cat-content');
+    if (!btns.length || !content) return;
+
+
+    function setActive(i) {
+      btns.forEach((b, idx) => {
+        b.classList.toggle('bg-primary-skypulse', idx === i);
+        b.classList.toggle('text-white', idx === i);
+        b.classList.toggle('border-transparent', idx === i);
+      });
+      content.textContent = btns[i]?.dataset.text || '';
+    }
+
+
+    btns.forEach((b, i) => b.addEventListener('click', () => setActive(i)));
+    setActive(0);
+  });
+});
+</script>

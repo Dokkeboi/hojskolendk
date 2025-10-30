@@ -4,8 +4,6 @@ import ButtonOrange from "../components/ButtonOrange.astro";
 import ButtonBlue from "../components/ButtonBlue.astro";
 import Form from "../components/Forms.astro";
 import { Image } from "astro:assets";
-import pin from "../assets/pin_icon.svg";
-import wifi from "../assets/wifi_icon.svg";
 ---
 
 <MainLayout title="Infomøde">
@@ -36,7 +34,7 @@ import wifi from "../assets/wifi_icon.svg";
         <div class="space-y-8 mb-12">
           <!-- København -->
           <div class="flex items-start gap-3">
-            <img src={pin.src} alt="Location pin" class="w-5 h-5 mt-1" />
+            <img src="../assets/pin_icon.svg" alt="Location pin" class="w-5 h-5 mt-1" />
             <div>
               <h3 class="h4 font-bold text-primary-charcoal">København</h3>
               <p class="p">Studenterhuset<br />Købmagergade 52 – 1150 København K</p>
@@ -47,7 +45,7 @@ import wifi from "../assets/wifi_icon.svg";
 
           <!-- Aarhus -->
           <div class="flex items-start gap-3">
-            <img src={pin.src} alt="Location pin" class="w-5 h-5 mt-1" />
+            <img src="../assets/pin_icon.svg" alt="Location pin" class="w-5 h-5 mt-1" />
             <div>
               <h3 class="h4 font-bold text-primary-charcoal">Aarhus</h3>
               <p class="p">LYNfabrikken<br />Vestergade 49B – 8000 Aarhus</p>
@@ -58,7 +56,7 @@ import wifi from "../assets/wifi_icon.svg";
 
           <!-- Online -->
           <div class="flex items-start gap-3">
-            <img src={wifi.src} alt="Online icon" class="w-5 h-5 mt-1" />
+            <img src="../assets/wifi_icon.svg" alt="Online icon" class="w-5 h-5 mt-1" />
             <div>
               <h3 class="h4 font-bold text-primary-charcoal">Online</h3>
               <p class="p">Deltag online</p>

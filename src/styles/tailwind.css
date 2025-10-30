@@ -106,13 +106,15 @@
   @apply font-display text-[20px] sm:text-[20px] lg:text-[48px];
 }
 
+.p {
+  @apply font-text text-[14px] sm:text-[14px] lg:text-[20px];
+}
+
 .h5-web {
   font-family: var(--font-display);
   font-size: 32px;
 }
 
-.h5-mobile {
-}
 .outline-h1-web {
   font-family: var(--font-display);
   font-size: 150px;
@@ -171,9 +173,6 @@
   -webkit-text-stroke-color: var(
     --color-secondary-suntrail-400
   );
-}
-.p {
-  @apply font-text text-[14px] sm:text-[14px] lg:text-[20px];
 }
 
 @layer base {

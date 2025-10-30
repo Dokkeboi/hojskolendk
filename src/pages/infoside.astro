@@ -1,10 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from "../components/Button.astro";
-import Form from "../components/Form.astro";
+import ButtonOrange from "../components/ButtonOrange.astro";
+import ButtonBlue from "../components/ButtonBlue.astro";
+import Form from "../components/Forms.astro";
 import { Image } from "astro:assets";
-import pin from "../assets/icons/pin.svg";
-import wifi from "../assets/icons/wifi.svg";
+import pin from "../assets/icons/pin_icon.svg";
+import wifi from "../assets/icons/wifi_icon.svg";
 ---
 
 <MainLayout title="Infomøde">
@@ -39,7 +40,8 @@ import wifi from "../assets/icons/wifi.svg";
             <div>
               <h3 class="h4 font-bold text-primary-charcoal">København</h3>
               <p class="p">Studenterhuset<br />Købmagergade 52 – 1150 København K</p>
-              <Button text="Tilmeld infomøde" class="mt-2 bg-secondary-suntrail-600 text-white" />
+              <!-- Correct orange button -->
+              <ButtonOrange text="Tilmeld infomøde" class="mt-2" />
             </div>
           </div>
 
@@ -49,7 +51,8 @@ import wifi from "../assets/icons/wifi.svg";
             <div>
               <h3 class="h4 font-bold text-primary-charcoal">Aarhus</h3>
               <p class="p">LYNfabrikken<br />Vestergade 49B – 8000 Aarhus</p>
-              <Button text="Tilmeld infomøde" class="mt-2 bg-secondary-suntrail-600 text-white" />
+              <!-- Correct orange button -->
+              <ButtonOrange text="Tilmeld infomøde" class="mt-2" />
             </div>
           </div>
 
@@ -59,6 +62,8 @@ import wifi from "../assets/icons/wifi.svg";
             <div>
               <h3 class="h4 font-bold text-primary-charcoal">Online</h3>
               <p class="p">Deltag online</p>
+              <!-- Blue button for online -->
+              <ButtonBlue text="Tilmeld online infomøde" class="mt-2" />
             </div>
           </div>
         </div>
@@ -94,6 +99,11 @@ import wifi from "../assets/icons/wifi.svg";
       </div>
 
       <!-- RIGHT: Sticky Form (only in desktop) -->
+      <!-- 
+        📌 This makes the form stay visible while scrolling on desktop.
+        - "lg:sticky" activates sticky positioning at large screens.
+        - "lg:top-20" offsets it from the top (so it doesn't stick to the nav).
+      -->
       <aside class="w-full lg:w-[380px] mt-10 lg:mt-0 lg:sticky lg:top-20">
         <Form />
       </aside>
@@ -101,20 +111,27 @@ import wifi from "../assets/icons/wifi.svg";
   </section>
 </MainLayout>
 
-
+<!-- =========================================================
+🎨 CUSTOM BULLET STYLING
+========================================================= -->
 <style is:global>
+  /* 
+  Use this to add custom SVG bullets to lists.
+  Apply "custom-bullet" class to <li> elements.
+  */
   .custom-bullet {
-    position: relative;
-    padding-left: 1.5rem;
+    position: relative;     /* So ::before is positioned relative to this <li> */
+    padding-left: 1.5rem;   /* Creates space for the SVG bullet */
   }
+
   .custom-bullet::before {
-    content: "";
+    content: "";            /* The pseudo-element (the bullet itself) */
     position: absolute;
-    top: 0.55rem;
+    top: 0.55rem;           /* Adjust to align with text baseline */
     left: 0;
-    width: 0.7rem;
-    height: 0.7rem;
+    width: 0.7rem;          /* Bullet width */
+    height: 0.7rem;         /* Bullet height */
     background: url("/icons/bullet.svg") no-repeat center center;
-    background-size: contain;
+    background-size: contain; /* Ensures SVG scales cleanly */
   }
 </style>

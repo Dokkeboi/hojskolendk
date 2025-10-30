@@ -1,0 +1,32 @@
+---
+const { text } = Astro.props;
+const { href="#", target="_self"} = Astro.props;
+---
+
+<a href={href} class="underline" target={target}>
+<button>
+  <p class="h5-web uppercase">{text}</p>
+</button>
+</a>
+
+<style>
+  button {
+    /* reset */
+    font: inherit;
+    cursor: pointer;
+
+    /* styling */
+    padding: 5px 30px ;
+    border-radius: 3px;
+    background-color: var(--color-primary-skypulse);
+    color: var(--color-primary-driftsand);
+    border: 2px solid var(--color-primary-skypulse);
+  }
+
+  button:hover {
+    background-color: var(--color-primary-driftsand);
+    color: var(--color-primary-skypulse);
+    border: 2px solid var(--color-primary-skypulse);
+
+  }
+</style>

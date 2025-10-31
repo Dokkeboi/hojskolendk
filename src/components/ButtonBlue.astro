@@ -1,10 +1,13 @@
 ---
 const { text } = Astro.props;
+const { href="#", target="_self"} = Astro.props;
 ---
 
+<a href={href} class="underline" target={target}>
 <button>
-  <p class="p-web uppercase"><slot /></p>
+  <p class="h5 uppercase">{text}</p>
 </button>
+</a>
 
 <style>
   button {
@@ -13,12 +16,17 @@ const { text } = Astro.props;
     cursor: pointer;
 
     /* styling */
-    padding: 0.4em 1.25em;
+    padding: 5px 30px ;
     border-radius: 3px;
     background-color: var(--color-primary-skypulse);
     color: var(--color-primary-driftsand);
+    border: 2px solid var(--color-primary-skypulse);
   }
 
-  p {
+  button:hover {
+    background-color: var(--color-primary-driftsand);
+    color: var(--color-primary-skypulse);
+    border: 2px solid var(--color-primary-skypulse);
+
   }
 </style>

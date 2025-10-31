@@ -1,0 +1,135 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ButtonOrange from "../components/ButtonOrange.astro";
+import ButtonBlue from "../components/ButtonBlue.astro";
+import Form from "../components/Forms.astro";
+import { Image } from "astro:assets";
+---
+
+<MainLayout title="Infomøde">
+  <!-- Outer wrapper -->
+  <section class="px-5 lg:px-16 pt-10 pb-20 bg-white text-primary-charcoal">
+    <!-- Desktop grid layout -->
+    <div class="flex flex-col lg:flex-row lg:items-start lg:gap-16">
+      
+      <!-- LEFT: Text content -->
+      <div class="flex-1 max-w-3xl">
+        <!-- Header -->
+        <div class="mb-8">
+          <h1 class="outline-h1-mobile lg:outline-h1-web uppercase">Infomøde</h1>
+          <h2 class="h3 font-bold mt-1 text-primary-charcoal">Kom til vores infomøde!</h2>
+        </div>
+
+        <!-- Intro text -->
+        <p class="p mb-8">
+          Hvis du drømmer om et fantastisk rejseeventyr med masser af adventure, vilde
+          naturoplevelser og spændende kulturmøder så smut forbi et af vores hyggelige
+          infomøder i København eller Aarhus – eller mød os på et online infomøde.
+          <br /><br />
+          Vi afholder vores infomøder fra kl. <strong>17.00–19.00</strong> i København og
+          Aarhus – og desuden online så du kan hoppe med fra sofaen.
+        </p>
+
+        <!-- Locations -->
+        <div class="space-y-8 mb-12">
+          <!-- København -->
+          <div class="flex items-start gap-3">
+            <img src="../assets/pin_icon.svg" alt="Location pin" class="w-5 h-5 mt-1" />
+            <div>
+              <h3 class="h4 font-bold text-primary-charcoal">København</h3>
+              <p class="p">Studenterhuset<br />Købmagergade 52 – 1150 København K</p>
+              <!-- Correct orange button -->
+              <ButtonOrange text="Tilmeld infomøde" class="mt-2" />
+            </div>
+          </div>
+
+          <!-- Aarhus -->
+          <div class="flex items-start gap-3">
+            <img src="../assets/pin_icon.svg" alt="Location pin" class="w-5 h-5 mt-1" />
+            <div>
+              <h3 class="h4 font-bold text-primary-charcoal">Aarhus</h3>
+              <p class="p">LYNfabrikken<br />Vestergade 49B – 8000 Aarhus</p>
+              <!-- Correct orange button -->
+              <ButtonOrange text="Tilmeld infomøde" class="mt-2" />
+            </div>
+          </div>
+
+          <!-- Online -->
+          <div class="flex items-start gap-3">
+            <img src="../assets/wifi_icon.svg" alt="Online icon" class="w-5 h-5 mt-1" />
+            <div>
+              <h3 class="h4 font-bold text-primary-charcoal">Online</h3>
+              <p class="p">Deltag online</p>
+              <!-- Blue button for online -->
+              <ButtonBlue text="Tilmeld online infomøde" class="mt-2" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section intro -->
+        <h3 class="h4 font-bold mb-4 text-primary-charcoal">
+          Vi præsenterer vores eventyrlige højskole og fortæller en masse om:
+        </h3>
+
+        <!-- List -->
+        <ul class="list-none space-y-3 mb-8">
+          <li class="custom-bullet p">Hvem er HØJSKOLENDK</li>
+          <li class="custom-bullet p">Vores eventyrlige højskoleophold</li>
+          <li class="custom-bullet p">Adventure, aktiviteter og alle de fede oplevelser der venter</li>
+          <li class="custom-bullet p">
+            En “almindelig” dag på 
+            <a href="#" class="text-secondary-suntrail-600 underline">højskole i udlandet</a>
+          </li>
+          <li class="custom-bullet p">
+            Den levende og aktive måde vi underviser på (glem kedelige klasseværelser)
+          </li>
+          <li class="custom-bullet p">
+            Økonomi, lommepenge, pakkeliste, fridage, afrejsemødet, etc.
+          </li>
+        </ul>
+
+        <p class="p mb-6">
+          Vi runder af med ‘Rejsefeber Café’, hvor du kan sludre med tidligere elever,
+          rejseledere og gerne – og selvfølgelig gi’ den gas med alle de spørgsmål du har.
+        </p>
+
+        <p class="p font-semibold mb-8">Vi glæder os til at se dig!</p>
+      </div>
+
+      <!-- RIGHT: Sticky Form (only in desktop) -->
+      <!-- 
+        📌 This makes the form stay visible while scrolling on desktop.
+        - "lg:sticky" activates sticky positioning at large screens.
+        - "lg:top-20" offsets it from the top (so it doesn't stick to the nav).
+      -->
+      <aside class="w-full lg:w-[380px] mt-10 lg:mt-0 lg:sticky lg:top-20">
+        <Form />
+      </aside>
+    </div>
+  </section>
+</MainLayout>
+
+<!-- =========================================================
+🎨 CUSTOM BULLET STYLING
+========================================================= -->
+<style is:global>
+  /* 
+  Use this to add custom SVG bullets to lists.
+  Apply "custom-bullet" class to <li> elements.
+  */
+  .custom-bullet {
+    position: relative;     /* So ::before is positioned relative to this <li> */
+    padding-left: 1.5rem;   /* Creates space for the SVG bullet */
+  }
+
+  .custom-bullet::before {
+    content: "";            /* The pseudo-element (the bullet itself) */
+    position: absolute;
+    top: 0.55rem;           /* Adjust to align with text baseline */
+    left: 0;
+    width: 0.7rem;          /* Bullet width */
+    height: 0.7rem;         /* Bullet height */
+    background: url("/icons/bullet.svg") no-repeat center center;
+    background-size: contain; /* Ensures SVG scales cleanly */
+  }
+</style>

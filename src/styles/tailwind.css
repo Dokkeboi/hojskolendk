@@ -66,6 +66,8 @@
   /* typografi */
   --font-display: "Anton-Regular", sans-serif;
   --font-text: "Roboto-Regular", sans-serif;
+
+  /* typografi størrelser */
 }
 
 /* Farver */
@@ -85,40 +87,96 @@
   color: var(--color-primary-driftsand);
 }
 
-/* Tilføj sekundære farver her efter behov. kald den .color-{navn-secondary}-{nummer} */
-
-.color-charc-secondaryoal-400 {
-  color: var(--color-secondary-charcoal-400);
-}
+/* Tilføj sekundære farver her efter behov. kald den .color-secondary-{navn}-{nummer} */
 
 /* Typografi */
 .h1 {
-  font-family: var(--font-display);
-  font-size: 48px;
+  @apply font-display text-[64px] sm:text-[64px] lg:text-[150px];
 }
 
 .h2 {
-  font-family: var(--font-display);
-  font-size: 34px;
+  @apply font-display text-[48px] sm:text-[48px] lg:text-[115px];
 }
 
 .h3 {
-  font-family: var(--font-display);
-  font-size: 28px;
+  @apply font-display text-[32px] sm:text-[32px] lg:text-[64px];
 }
 
 .h4 {
-  font-family: var(--font-display);
-  font-size: 18px;
-}
-.p-web {
-  font-family: var(--font-text);
-  font-size: 20px;
+  @apply font-display text-[20px] sm:text-[20px] lg:text-[48px];
 }
 
-.p-mobile {
-  font-family: var(--font-text);
-  font-size: 14px;
+.h5 {
+  @apply font-display text-[16px] sm:text-[16px] lg:text-[32px];
+}
+
+.p {
+  @apply font-text text-[14px] sm:text-[14px] lg:text-[20px];
+}
+
+.h5-web {
+  font-family: var(--font-display);
+  font-size: 32px;
+}
+
+.outline-h1-web {
+  font-family: var(--font-display);
+  font-size: 150px;
+  color: var(--color-primary-driftsand);
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: var(
+    --color-secondary-suntrail-400
+  );
+}
+
+.outline-h2-web {
+  font-family: var(--font-display);
+  font-size: 115px;
+  color: var(--color-primary-driftsand);
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: var(
+    --color-secondary-suntrail-400
+  );
+}
+
+.outline-h3-web {
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--color-primary-driftsand);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(
+    --color-secondary-suntrail-400
+  );
+}
+
+.outline-h1-mobile {
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--color-primary-driftsand);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(
+    --color-secondary-suntrail-400
+  );
+}
+
+.outline-h2-mobile {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--color-primary-driftsand);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(
+    --color-secondary-suntrail-400
+  );
+}
+
+.outline-h3-mobile {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--color-primary-driftsand);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(
+    --color-secondary-suntrail-400
+  );
 }
 
 @layer base {

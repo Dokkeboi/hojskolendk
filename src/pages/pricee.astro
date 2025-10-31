@@ -7,8 +7,8 @@ import Accordion from "../components/Accordion.astro";
 
 
 
-
 <MainLayout title="Priser">
+<div class="px-4 lg:px-8">
 <section class="py-12 px-4 mx-auto mb-12 lg:flex lg:flex-row lg:items-start lg:justify-between" style="max-width: 1600px;">
 
 
@@ -310,7 +310,7 @@ import Accordion from "../components/Accordion.astro";
             <img src="imgz/video-img.png" alt="video">
             <!-- Video Play Icon -->
             <div class="absolute inset-0 flex items-center justify-center">
-                <img src="imgz/video-icon.png" alt="play video" class="w-16 h-16 hover:scale-110 transition-transform cursor-pointer">
+                <img src="imgz/video-icon.svg" alt="play video" class="w-16 h-16 hover:scale-110 transition-transform cursor-pointer">
             </div>
         </div>
 
@@ -324,7 +324,7 @@ import Accordion from "../components/Accordion.astro";
             <div class="h-1 w-10 bg-primary-suntrail mb-4"></div>
         </div>
     </section>
-
+</div>
 
 </MainLayout>
 
@@ -371,3 +371,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Add click handlers to all filter buttons
+  document.querySelectorAll('.filter-btn').forEach(button => {
+    const buttonX = button.querySelector('.button-x');
+   
+    button.addEventListener('click', () => {
+      const isActive = button.classList.contains('bg-primary-suntrail');
+     
+      if (isActive) {
+        // If button is already active, deactivate it
+        button.classList.remove('bg-primary-suntrail', 'text-white');
+        button.classList.add('text-primary-suntrail');
+        buttonX.classList.add('hidden');
+      } else {
+        // Add active class to clicked button (same as hover state)
+        button.classList.remove('text-primary-suntrail');
+        button.classList.add('bg-primary-suntrail', 'text-white');
+        buttonX.classList.remove('hidden');
+      }
+    });
+  });
+});
+</script>
+

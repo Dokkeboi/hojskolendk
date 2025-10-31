@@ -1,0 +1,99 @@
+---
+export interface Props {
+    title: string;
+    isOpen?: boolean;
+}
+
+
+const { title, isOpen = false } = Astro.props;
+const accordionId = `accordion-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+
+<div class="p border border-secondary-charcoal-200 rounded-lg overflow-hidden mx-auto" style="max-width: 1200px;">
+    <button
+        class="w-full px-6 py-4 text-left bg-white hover:bg-secondary-charcoal-50 transition-colors flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary-suntrail"
+        data-accordion-toggle={accordionId}
+        aria-expanded={isOpen ? "true" : "false"}
+        aria-controls={accordionId}
+    >
+        <span class="text-font font-medium text-secondary-charcoal-800">{title}</span>
+        <svg
+            class="w-5 h-5 transform transition-transform duration-200 text-secondary-charcoal-600"
+            data-accordion-icon
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+   
+    <div
+        id={accordionId}
+        class={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+        aria-hidden={isOpen ? "false" : "true"}
+    >
+        <div class="px-6 py-4 bg-secondary-charcoal-25 border-t border-secondary-charcoal-200">
+            <slot />
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle accordion toggles
+    const accordionButtons = document.querySelectorAll('[data-accordion-toggle]');
+   
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-accordion-toggle');
+            if (!targetId) return;
+           
+            const targetContent = document.getElementById(targetId);
+            const icon = button.querySelector('[data-accordion-icon]') as HTMLElement;
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+           
+            if (targetContent && icon) {
+                if (isExpanded) {
+                    // Close accordion
+                    targetContent.classList.remove('max-h-96', 'opacity-100');
+                    targetContent.classList.add('max-h-0', 'opacity-0');
+                    button.setAttribute('aria-expanded', 'false');
+                    targetContent.setAttribute('aria-hidden', 'true');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Open accordion
+                    targetContent.classList.remove('max-h-0', 'opacity-0');
+                    targetContent.classList.add('max-h-96', 'opacity-100');
+                    button.setAttribute('aria-expanded', 'true');
+                    targetContent.setAttribute('aria-hidden', 'false');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            }
+        });
+       
+        // Set initial icon rotation based on isOpen prop
+        const targetId = button.getAttribute('data-accordion-toggle');
+        if (!targetId) return;
+       
+        const targetContent = document.getElementById(targetId);
+        const icon = button.querySelector('[data-accordion-icon]') as HTMLElement;
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+       
+        if (icon && isExpanded) {
+            icon.style.transform = 'rotate(180deg)';
+        }
+    });
+});
+</script>
+
+
+<style>
+/* Ensure smooth transitions */
+[data-accordion-toggle] [data-accordion-icon] {
+    transition: transform 0.2s ease-in-out;
+}
+</style>

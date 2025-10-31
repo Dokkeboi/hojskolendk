@@ -1,9 +1,373 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import PriceCard from "../components/PriceCard.astro";
+import FilterButton from "../components/FilterButton.astro";
+import Accordion from "../components/Accordion.astro";
 ---
 
 
-<MainLayout title="Priser bg-primary-driftsand">
-    <PriceCard src="/imgs/price-bali.webp" alt="bali" />
+
+
+<MainLayout title="Priser">
+<section class="py-12 px-4 mx-auto mb-12 lg:flex lg:flex-row lg:items-start lg:justify-between" style="max-width: 1600px;">
+
+
+            <div class="lg:flex-1">
+                <h2 class="outline-h2-web text-3xl md:text-4xl font-bold mb-0">PRISER</h2>
+                <h3 class="h3 max-w-180 -mt-12">Én oplevelse – alt inkluderet til din højskolerejse i udlandet.</h3>
+            </div>
+           
+
+
+            <div class="lg:flex-1 lg:mt-12 mt-8 flex items-start gap-4 lg:justify-end p">
+                <div class="w-1 h-5 bg-primary-suntrail flex-shrink-0 lg:mt-16 hidden lg:block"></div>
+                <p class="text-lg md:text-2xl max-w-140 lg:mt-14">At tage på højskole i udlandet er en investering i både personlig udvikling og uforglemmelige oplevelser. Her kan du få at overblik over priser, hvad der er inkluderet i opholdet, og hvordan du bedst planlægger dit budget til dit eventyr i udlandet.</p>
+            </div>
+</section>
+    <!-- Filter Toggle Button -->
+    <section class="px-4  relative">
+        <div class="max-w-400 mx-auto relative">
+            <button id="filter-toggle-btn" class=" text-primary-charcoal px-6 py-3 rounded-lg font-bold border-2 hover:bg-primary-cloudstone transition-colors flex items-center gap-2">
+                <span>Filter</span>
+                <svg class="w-4 h-4 transform transition-transform" id="filter-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+           
+            <!-- Filter Container - overlay der aligner med knappen -->
+            <div id="filter-container" class="absolute top-full left-0 z-50 w-110 max-w-none border border-1px border-secondary-charcoal-200 bg-white p-5 rounded-md mt-2 shadow-lg hidden">
+                <!-- Filter Header -->
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-font font-bold text-secondary-charcoal-800">Filter</h2>
+                    <button class="filter-close-btn p-2 hover:bg-secondary-charcoal-100 rounded-full transition-colors">
+                        <span class="text-secondary-charcoal-600 text-28 font-bold">×</span>
+                    </button>
+                </div>
+               
+                <div class="mb-10">
+                    <h3 class="text-font text-16 font-medium text-secondary-charcoal-800 mt-4">Prisinterval</h3>
+                    <div class="flex flex-wrap gap-2 mt-1">
+                        <FilterButton buttontext="20k - 50k"></FilterButton>
+                        <FilterButton buttontext="51k - 70k"></FilterButton>
+                        <FilterButton buttontext="71k - 95k"></FilterButton>
+                    </div>
+                </div>
+
+
+                <div class="mb-10">
+                    <h3 class="text-font text-16 font-medium text-secondary-charcoal-800 mt-4">Region</h3>
+                    <div class="flex flex-wrap gap-2 mt-1">
+                        <FilterButton buttontext="Europa"></FilterButton>
+                        <FilterButton buttontext="Asien"></FilterButton>
+                        <FilterButton buttontext="Afrika"></FilterButton>
+                        <FilterButton buttontext="Australien"></FilterButton>
+                        <FilterButton buttontext="Nordamerika"></FilterButton>
+                        <FilterButton buttontext="Sydamerika"></FilterButton>
+                    </div>
+                </div>
+
+
+                <div class="mb-10">
+                    <h3 class="text-font text-16 font-medium text-secondary-charcoal-800 mt-4">Sæson</h3>
+                    <div class="flex flex-wrap gap-2 mt-1 ">
+                        <FilterButton buttontext="Sommer"></FilterButton>
+                        <FilterButton buttontext="Efterår"></FilterButton>
+                        <FilterButton buttontext="Vinter"></FilterButton>
+                        <FilterButton buttontext="Forår"></FilterButton>
+                    </div>
+                </div>
+
+
+                <div class="mb-6">
+                    <h3 class="text-font text-16 font-medium text-secondary-charcoal-800 mt-4">Aktivitetstype</h3>
+                    <div class="flex flex-wrap gap-2 mt-1">
+                        <FilterButton buttontext="Action og udfordring"></FilterButton>
+                        <FilterButton buttontext="Sne & Ski"></FilterButton>
+                        <FilterButton buttontext="Strand & Sol"></FilterButton>
+                        <FilterButton buttontext="Kultur & Mad"></FilterButton>
+                        <FilterButton buttontext="Afslapning og velvære"></FilterButton>
+                    </div>
+                </div>
+               
+                <!-- Apply Filters Button -->
+                <div class="border-t border-secondary-charcoal-200 pt-4">
+                    <button id="apply-filters-btn" class="w-full bg-primary-suntrail text-white px-6 py-3 rounded-lg font-bold hover:bg-secondary-suntrail-700 transition-colors">
+                        Anvend filtre
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Product Grid Section -->
+    <section class="px-4 py-8">
+        <!-- Mobile: Horizontal scroll -->
+        <div class="md:hidden overflow-x-auto pb-4">
+            <div class="flex gap-4 w-max">
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+                <div class="flex-shrink-0">
+                    <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Desktop: Grid layout -->
+        <div class="hidden md:block max-w-400 mx-auto">
+            <div class="grid grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 justify-items-center">
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+                <PriceCard src="/imgz/price-bali.webp" alt="bali" />
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section class="px-4 py-12">
+        <div class="mx-auto mb-8" style="max-width: 1200px;">
+            <h2 class="text-font text-3xl md:text-4xl font-bold text-center mb-2">Ofte stillede spørgsmål</h2>
+            <p class="text-font text-lg text-center text-secondary-charcoal-600 mb-8">Find svar på de mest almindelige spørgsmål om højskoleophold i udlandet</p>
+        </div>
+       
+        <div class="space-y-4">
+            <Accordion title="Skal jeg betale hele rejsen på én gang?">
+                <div class="p">
+                    <p class="text-font">Nej, du behøver ikke betale hele beløbet på én gang. Vi tilbyder fleksible betalingsmuligheder:</p>
+                    <ul class="text-font list-disc list-inside mt-2 space-y-1">
+                        <li>Depositum på 5.000 kr. ved tilmelding for at reservere din plads</li>
+                        <li>Restbeløbet kan betales i rater over 6-12 måneder</li>
+                        <li>Sidste betaling skal være indgået senest 30 dage før afrejse</li>
+                        <li>Vi tilbyder også betalingsaftaler for dem, der har brug for længere betalingsperioder</li>
+                    </ul>
+                </div>
+            </Accordion>
+
+
+            <Accordion title="Hvad sker der, hvis jeg bliver syg i udlandet?">
+                <div class="p">
+                    <p>Vi er godt forberedt på sygdomstilfælde og din sikkerhed er vores topprioritet:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Alle ledere er førstehjælpsuddannede og har erfaring med udlandssituationer</li>
+                        <li>Vi har 24/7 kontakt til lokale læger og hospitaler</li>
+                        <li>Rejseforsikringen dækker alle lægebesøg, medicin og hospitalophold</li>
+                        <li>Ved alvorlig sygdom arrangerer vi hjemtransport med lægeassistance</li>
+                        <li>Du får altid en dansk-talende kontaktperson til at hjælpe</li>
+                    </ul>
+                    <p class="mt-2">Husk at informere os om eventuelle kroniske sygdomme, allergier eller medicin på tilmeldingsformularen.</p>
+                </div>
+            </Accordion>
+
+
+            <Accordion title="Hvordan adskiller et ophold i udlandet sig fra en almindelig højskole i Danmark?">
+                <div class="p">
+                    <p>Et højskoleophold i udlandet giver dig unikke oplevelser, der ikke kan skabes i Danmark:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Kulturel fordybelse - du lever og lærer i en helt anden kultur</li>
+                        <li>Sprogudvikling - daglig praksis af fremmedsprog i naturlige situationer</li>
+                        <li>Internationale perspektiver - møder mennesker fra hele verden</li>
+                        <li>Udfordrende oplevelser - aktiviteter og miljøer du ikke finder i Danmark</li>
+                        <li>Personlig udvikling - at være uden for komfortzonen fremmer selvstændighed</li>
+                        <li>Globalt netværk - skaber venskaber på tværs af kontinenter</li>
+                    </ul>
+                    <p class="mt-2">Samtidig bevarer vi det danske højskole-DNA med fællesskab, refleksion og personlig udvikling.</p>
+                </div>
+            </Accordion>
+
+
+            <Accordion title="Hvordan ser en typisk dag ud på højskolen?">
+                <div class="p">
+                    <p>En typisk dag er fyldt med variation og balancerer læring, oplevelser og fællesskab:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li><strong>07:30-08:30:</strong> Fælles morgenmad og dagens briefing</li>
+                        <li><strong>09:00-12:00:</strong> Formiddagsaktivitet (kulturbesøg, sprogundervisning eller workshops)</li>
+                        <li><strong>12:00-13:00:</strong> Frokost med lokale specialiteter</li>
+                        <li><strong>13:00-14:00:</strong> Hvil og personlig tid</li>
+                        <li><strong>14:00-17:00:</strong> Eftermiddagsaktivitet (udflugter, projekter eller fællesskabsaktiviteter)</li>
+                        <li><strong>17:00-19:00:</strong> Aftensmad og sociale aktiviteter</li>
+                        <li><strong>19:00-22:00:</strong> Aftenmøder, refleksion eller lokale oplevelser</li>
+                    </ul>
+                    <p class="mt-2">Hver dag er forskellig, og der er balance mellem planlagte aktiviteter og fri tid til personlig udforskning.</p>
+                </div>
+            </Accordion>
+
+
+            <Accordion title="Hvad er inkluderet i prisen (fx fly, mad, udflugter, forsikring)?">
+                <div class="p">
+                    <p>Vores priser er all-inclusive for at give dig en bekymringsfri oplevelse:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li><strong>Transport:</strong> Fly, bus, færge og lokal transport under hele opholdet</li>
+                        <li><strong>Overnatning:</strong> Alle nætter i godkendte faciliteter (værelser deles typisk)</li>
+                        <li><strong>Måltider:</strong> Alle måltider inkl. snacks og drikkevarer til aktiviteter</li>
+                        <li><strong>Aktiviteter:</strong> Alle udflugter, kulturbesøg, workshops og guidede ture</li>
+                        <li><strong>Forsikring:</strong> Omfattende rejse- og ulykkesforsikring</li>
+                        <li><strong>Ledelse:</strong> Kvalificerede danske ledere under hele opholdet</li>
+                        <li><strong>Materialer:</strong> Alt undervisningsmateriale og udstyr til aktiviteter</li>
+                    </ul>
+                    <p class="mt-2">Du skal kun selv betale for personlige indkøb, souvenirs og eventuelle ekstra aktiviteter uden for programmet.</p>
+                </div>
+            </Accordion>
+
+
+            <Accordion title="Hvad koster et højskoleophold?">
+                <div class="p">
+                    <p>Prisen afhænger af destination, varighed og sæson, men som vejledning:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li><strong>Europa (2-4 måneder):</strong> 45.000-75.000 kr.</li>
+                        <li><strong>Asien (3-6 måneder):</strong> 65.000-95.000 kr.</li>
+                        <li><strong>Australien/USA (4-6 måneder):</strong> 85.000-120.000 kr.</li>
+                        <li><strong>Afrika/Sydamerika (3-5 måneder):</strong> 70.000-100.000 kr.</li>
+                    </ul>
+                    <p class="mt-2">Prisen inkluderer alt som nævnt ovenfor. Vi tilbyder også:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Søskenderabat på 2.000 kr.</li>
+                        <li>Tidlig booking-rabat (book 6 måneder før = 3.000 kr. rabat)</li>
+                        <li>Mulighed for stipendier til særligt motiverede ansøgere</li>
+                    </ul>
+                </div>
+            </Accordion>
+
+
+            <Accordion title="Får jeg et bevis eller diplom efter opholdet?">
+                <div class="p">
+                    <p>Ja, du får flere former for dokumentation for dit ophold:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li><strong>Højskolebevis:</strong> Officielt bevis for gennemført højskoleophold</li>
+                        <li><strong>Kompetenceattest:</strong> Detaljeret beskrivelse af de færdigheder du har udviklet</li>
+                        <li><strong>Sprogcertifikat:</strong> Dokumentation for sprogforbedring (hvis relevant)</li>
+                        <li><strong>Aktivitetscertifikat:</strong> Bevis for specifikke kurser eller certificeringer (fx dykkercertifikat, førstehjælp)</li>
+                        <li><strong>Portfolio:</strong> Personlig mappe med projekter og refleksioner fra opholdet</li>
+                    </ul>
+                    <p class="mt-2">Disse dokumenter kan bruges i ansøgninger til videregående uddannelser eller job, da de viser international erfaring og personlig udvikling.</p>
+                </div>
+            </Accordion>
+
+
+            <Accordion title="Kan jeg søge støtte, SU, tilskud eller legater til mit ophold?">
+                <div class="p">
+                    <p>Ja, der er flere muligheder for økonomisk støtte til dit højskoleophold:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li><strong>SU til højskole:</strong> Du kan få SU under opholdet (kontakt SU-kontoret for detaljer)</li>
+                        <li><strong>Højskoletilskud:</strong> Statens tilskud reducerer prisen med ca. 10.000-15.000 kr.</li>
+                        <li><strong>Erasmus+ stipendier:</strong> For ophold i Europa (2.000-4.000 kr./måned)</li>
+                        <li><strong>Private fonde:</strong> Vi hjælper med ansøgninger til legater og fonde</li>
+                        <li><strong>Kommunale tilskud:</strong> Nogle kommuner giver rejsetilskud til unge</li>
+                        <li><strong>Vores egne stipendier:</strong> Vi uddeler årligt 10-15 stipendier på 5.000-15.000 kr.</li>
+                    </ul>
+                    <p class="mt-2">Vores studievejledere hjælper dig med at finde og søge alle relevante støttemuligheder. Book en gratis vejledning for personlig rådgivning.</p>
+                </div>
+            </Accordion>
+        </div>
+    </section>
+
+
+    <section class="py-12  px-4 mx-auto bg-secondary-skypulse-100 border-radius" style="max-width: 1400px;">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+            <div class="lg:flex-1 text-center">
+                <h4 class="h4 mb-4">KLAR TIL DIN EVENTYR?</h4>
+                <p class="text-font text-lg mb-6">Reserver din plads i dag – vi glæder os til at rejse sammen med dig</p>
+                <button class="bg-primary-suntrail text-white px-6 py-3 rounded-lg font-bold">Reserver nu</button>
+            </div>
+            <div class="lg:flex-1 flex justify-center">
+                <img src="/imgz/roadtrip.png" alt="roadtrip photo" class="w-full max-w-lg">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="lg:flex flex-row justify-center mt-20">
+        <div class="relative">
+            <img src="imgz/video-img.png" alt="video">
+            <!-- Video Play Icon -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <img src="imgz/video-icon.png" alt="play video" class="w-16 h-16 hover:scale-110 transition-transform cursor-pointer">
+            </div>
+        </div>
+
+
+        <div class="max-w-120 lg:ml-20">
+            <h4 class="text-font text-3xl font-bold mb-4">Mere End En Rejse – En Oplevelse for Livet</h4>
+
+
+            <p class="text-font p">Mød Sofie Madsen, 19 år, som tog springet og rejste med HøjskolenDK til Costa Rica for et ophold fyldt med fællesskab, kultur og selvudvikling. I videoen fortæller Sofie om, hvordan hun gik fra at være usikker på at rejse alene til at finde venner for livet og få et helt nyt syn på verden.</p>
+            <p class="p mt-10">Hun deler sine bedste minder, udfordringerne undervejs og hvorfor højskolelivet i udlandet blev en oplevelse, der ændrede hendes hverdag – og hendes fremtid.</p>
+            <div class="h-1 w-10 bg-primary-suntrail mb-4"></div>
+        </div>
+    </section>
+
+
 </MainLayout>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const filterToggleBtn = document.getElementById('filter-toggle-btn');
+    const filterContainer = document.getElementById('filter-container');
+    const filterCloseBtn = document.querySelector('.filter-close-btn');
+    const filterArrow = document.getElementById('filter-arrow');
+    const applyFiltersBtn = document.getElementById('apply-filters-btn');
+   
+    function toggleFilter() {
+        const isHidden = filterContainer.classList.contains('hidden');
+       
+        if (isHidden) {
+            // Show filter
+            filterContainer.classList.remove('hidden');
+            filterArrow.style.transform = 'rotate(180deg)';
+        } else {
+            // Hide filter
+            filterContainer.classList.add('hidden');
+            filterArrow.style.transform = 'rotate(0deg)';
+        }
+    }
+   
+    // Toggle filter when button is clicked
+    filterToggleBtn.addEventListener('click', toggleFilter);
+   
+    // Close filter when X button is clicked
+    filterCloseBtn.addEventListener('click', () => {
+        filterContainer.classList.add('hidden');
+        filterArrow.style.transform = 'rotate(0deg)';
+    });
+   
+    // Apply filters and close filter container
+    applyFiltersBtn.addEventListener('click', () => {
+        // Here you can add logic to actually apply the filters
+        console.log('Filtre anvendt!');
+       
+        // Close the filter container
+        filterContainer.classList.add('hidden');
+        filterArrow.style.transform = 'rotate(0deg)';
+    });
+});
+</script>
